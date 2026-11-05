@@ -1,132 +1,121 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>School Calendar</title>
+<!doctype html><html><head><meta charset=utf-8><title>Buddy — School Calendar</title>
 <style>
-:root{--bg:#0e1013;--card:#171a20;--card2:#1e222a;--line:#262b34;--txt:#e9ebef;--mut:#8b93a1;--gold:#d4af37;--red:#e0685a}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt);margin:0;padding:0 0 40px}
-header{max-width:720px;margin:0 auto;padding:18px 14px 6px;display:flex;align-items:baseline;justify-content:space-between}
-h1{font-size:22px;margin:0;font-weight:700;letter-spacing:.2px}
-.todaybtn{background:var(--gold);color:#111;border:0;border-radius:99px;padding:7px 16px;font-weight:700;font-size:13px;cursor:pointer}
-nav{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:8px 14px}
-nav .mlab{flex:1;text-align:center;font-size:17px;font-weight:600}
-nav button{background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:10px;width:42px;height:36px;font-size:17px;cursor:pointer}
-.grid{max-width:720px;margin:0 auto;padding:0 10px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.dow{color:var(--mut);font-size:10.5px;text-align:center;padding:4px 0;font-weight:600;letter-spacing:.5px}
-.day{background:var(--card);border-radius:10px;min-height:58px;padding:4px;cursor:pointer;border:1px solid transparent;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.day:active{background:var(--card2)}
-.day.dim{opacity:.25;pointer-events:none}
-.day.today{border-color:var(--gold)}
-.day .n{color:var(--mut);font-size:10.5px;margin-bottom:2px}
-.day.today .n{color:var(--gold);font-weight:700}
-.pill{font-size:9.8px;border-radius:5px;padding:1.5px 4px;margin:1px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35}
-.pill.red{background:rgba(224,104,90,.16);color:#f0968a;font-weight:600}
-.pill.deadline{background:rgba(212,175,55,.13);color:var(--gold)}
-.pill.class{background:rgba(108,168,224,.12);color:#9cc4ee}
-.pill.manual,.pill.academic{background:rgba(139,147,161,.13);color:#aab2c0}
-.more{font-size:9.5px;color:var(--mut);margin-top:auto;padding-top:2px}
-#detail{display:none;max-width:720px;margin:0 auto;padding:10px 14px}
-.back{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:8px 14px;font-size:14px;cursor:pointer;margin-bottom:12px}
-.dh{font-size:24px;font-weight:700;margin:2px 0 2px}
-.dh-sub{color:var(--mut);font-size:13px;margin-bottom:14px}
-.topline{display:flex;align-items:center;gap:8px;margin:16px 0 8px;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--red)}
-.evcard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--mut);border-radius:12px;padding:11px 13px;margin:8px 0}
-.evcard.deadline{border-left-color:var(--gold)}
-.evcard.red{border-left-color:var(--red);background:linear-gradient(90deg,rgba(224,104,90,.09),var(--card))}
-.evcard .t{font-size:12px;color:var(--mut);display:flex;gap:8px;align-items:baseline;margin-bottom:3px}
-.evcard .title{font-size:15px;line-height:1.4}
-.evcard.red .title{font-weight:650}
-.chip{font-size:10px;background:var(--card2);border:1px solid var(--line);border-radius:99px;padding:1px 8px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
-.empty{color:var(--mut);text-align:center;padding:50px 20px;font-size:14px}
-.note{max-width:720px;margin:14px auto 0;padding:0 14px;color:#5c6472;font-size:12px;text-align:center}
-@media(max-width:520px){.day{min-height:50px;padding:3px}.pill{font-size:9px}.dh{font-size:20px}}
-</style>
-</head>
-<body>
-<div id="cal">
-  <header><h1>School Calendar</h1><button class="todaybtn" onclick="goToday()">Today</button></header>
-  <nav>
-    <button onclick="shiftMonth(-1)" aria-label="previous month">‹</button>
-    <div class="mlab" id="mlabel"></div>
-    <button onclick="shiftMonth(1)" aria-label="next month">›</button>
-  </nav>
-  <div class="grid" id="grid"></div>
-  <p class="note">Read-only — to add or change events, message the school-buddy bot on Telegram.</p>
-</div>
+ body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0f1115;color:#e8e8ea;margin:0;padding:20px}
+ h1{font-size:20px;text-align:center;margin:6px 0}
+ .nav{display:flex;justify-content:center;gap:14px;margin:8px 0 12px}
+ button{background:#181b21;color:#e8e8ea;border:1px solid #2a2f38;border-radius:6px;padding:6px 16px;cursor:pointer}
+ .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;max-width:1150px;margin:0 auto}
+ .dow{color:#9aa0aa;font-size:12px;text-align:center;padding:4px 0}
+ .day{background:#181b21;min-height:96px;border-radius:8px;padding:6px;font-size:12px;cursor:pointer;transition:outline .1s}
+ .day:hover{outline:1px solid #d4af37}
+ .day.dim{opacity:.3}.day.today{outline:2px solid #d4af37}
+ .dnum{color:#9aa0aa;margin-bottom:4px}
+ .ev{border-radius:5px;padding:2px 6px;margin:2px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .deadline{background:#3a2020;border-left:3px solid #e06c5a}.academic{background:#1e2d3f;border-left:3px solid #6ca8e0}
+ .travel{background:#203a2a;border-left:3px solid #6ce09a}.tax{background:#3a3416;border-left:3px solid #e0c05a}
+ .manual,.recurring{background:#242830;border-left:3px solid #8a90a0}
+ .ev.imp{font-weight:700}
+ #modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center}
+ #modal.open{display:flex}
+ .panel{background:#16181d;border:1px solid #2a2f38;border-radius:14px;padding:22px;width:min(480px,92vw)}
+ .panel h2{margin:0 0 4px;font-size:18px;color:#d4af37}
+ .panel .sub{color:#9aa0aa;font-size:12px;margin-bottom:12px}
+ .panel .ag{display:flex;gap:10px;align-items:baseline;background:#1e2127;border-radius:8px;padding:8px 10px;margin:6px 0;font-size:14px}
+ .panel .ag .t{color:#9aa0aa;font-size:12px;min-width:40px}
+ .del{margin-left:auto;color:#e06c5a;font-weight:700;cursor:pointer}
+ .panel form{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+ input,select{background:#22252c;color:#e8e8ea;border:1px solid #2a2f38;border-radius:6px;padding:8px}
+ input[type=submit]{background:#d4af37;color:#111;border:0;font-weight:600;cursor:pointer}
+ .back{margin-top:14px;width:100%;background:#22252c}
 
-<div id="detail">
-  <button class="back" onclick="closeDay()">← Back to month</button>
-  <div class="dh" id="dTitle"></div>
-  <div class="dh-sub" id="dSub"></div>
-  <div id="dList"></div>
-</div>
+ @media (max-width:760px){.wrap{max-width:100%}.day{min-height:64px;font-size:10px;padding:2px}.dnum{font-size:10px}
+  .ev{font-size:8.5px;line-height:1.2}.more{font-size:8px}
+  .day{min-height:70px}.panel{width:96vw}body{padding:8px}h1{font-size:16px}}
+ @media (min-width:761px){.ev{white-space:normal}}
 
+ .vbtn.on{background:#d4af37;color:#111;font-weight:700;border-color:#d4af37}
+ .wgrid{max-width:760px;margin:0 auto}
+ .wday{border:1px solid #3a3f4a;border-radius:8px;padding:8px;margin:6px 0;background:#181b21;cursor:pointer}
+ .wday.sel{outline:2px solid #d4af37}
+ .wh{color:#9aa0aa;font-size:12px;margin-bottom:4px}.wh b{color:#e8e8ea;font-size:14px}
+ .tdy{background:#d4af37;color:#111;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:6px}
+ .oldnav{display:none}
+</style></head><body>
+<h1 id="mLabel" style="cursor:pointer" onclick="closeDay()"></h1>
+<div class="nav"><button class="vbtn" data-v="day" onclick="setMode('day')">Day</button><button class="vbtn" data-v="week" onclick="setMode('week')">Week</button><button class="vbtn" data-v="month" onclick="setMode('month')">Month</button><button onclick="mv(-1)">‹</button><button onclick="view=new Date();closeDay();refresh()">Today</button><button onclick="mv(1)">›</button></div>
+<div class="grid" id="grid"></div>
+<div id="modal"><div class="panel">
+ <h2 id="dLabel"></h2><div class="sub" id="dSub"></div><div class="hint" style="display:none;color:#d4af37;font-size:12px;margin:6px 0">Read-only on phone — to add or remove, text the calendar bot on Telegram.</div>
+ <div id="dayEvents"></div>
+ <form id="df"><input type=hidden name=date id="dfDate"><input type=time name=time><input name=title placeholder="Add event…" required style="flex:1;min-width:160px">
+ <select name=source><option>manual</option><option>school</option><option>churn</option><option>money</option><option>travel</option><option>dues</option><option>pawn</option></select>
+ <select name=type><option>manual</option><option>deadline</option><option>academic</option><option>travel</option><option>tax</option></select>
+ <input type=submit value=Add></form>
+ <button class="back" onclick="closeDay()">← Back to month</button>
+</div></div>
 <script>
-let view=new Date(),ALL=[],curDate=null;
-const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-const MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
-const esc=s=>String(s).replace(/</g,'&lt;');
-const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-const prio=e=>(e.title.startsWith('🔴')?0:e.type==='deadline'?1:2)+(e.time||'23:59');
-const isRed=e=>e.title.startsWith('🔴');
-const pillClass=e=>isRed(e)?'red':(['deadline','class','academic','travel','tax','manual'].includes(e.type)?e.type:'manual');
+let view=new Date(),ALL=[],openDate=null;let today=new Date().toISOString().slice(0,10);const isLocal=['127.0.0.1','localhost'].includes(location.hostname);
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const cls=e=>['deadline','academic','travel','tax'].includes(e.type)?e.type:(e.source&&e.source!=='manual'?e.source:'manual');
+const imp=e=>e.type==='deadline'||e.title.startsWith('\u{1F534}');
+async function refresh(){const src=isLocal?'/events':'events.json?t='+Date.now();const dd=await(await fetch(src)).json();ALL=(dd.events||dd)||[];ALL.sort((a,b)=>(a.date+(a.time||'')).localeCompare(b.date+(b.time||'')));
+ const y=view.getFullYear(),m=view.getMonth();
+ document.getElementById('mLabel').textContent=MON[m]+' '+y;
+ const start=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();
+ const today=new Date().toISOString().slice(0,10);
+ let g=DOW.map(d=>'<div class=dow>'+d+'</div>').join('');
+ for(let i=0;i<start;i++)g+='<div class="day dim"></div>';
+ for(let d=1;d<=days;d++){const ds=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+  const de=ALL.filter(e=>e.date===ds).slice(0,3).map(e=>'<div class="ev '+cls(e)+(imp(e)?' imp':'')+'">'+(imp(e)?'\u{1F534} ':'')+(e.time?e.time+' ':'')+e.title.replace(/</g,'&lt;')+'</div>').join('');
+  const more=ALL.filter(e=>e.date===ds).length>3?'<div class=dnum style="color:#666">+'+(ALL.filter(e=>e.date===ds).length-3)+' more</div>':'';
+  g+='<div class="day'+(ds===today?' today':'')+'" onclick="openDay(\''+ds+'\')"><div class=dnum>'+d+'</div>'+de+more+'</div>';}
+ document.getElementById('grid').innerHTML=g;
+ if(openDate)renderDay();}
+function mv(n){view.setMonth(view.getMonth()+n);openDate=null;document.getElementById('modal').classList.remove('open');refresh();}
+function openDay(ds){openDate=ds;renderDay();document.getElementById('modal').classList.add('open');document.querySelector('.panel form').style.display=isLocal?'flex':'none';document.querySelector('.hint').style.display=isLocal?'none':'block';document.querySelectorAll('.del').forEach(x=>x.style.display=isLocal?'inline':'none');}
+function closeDay(){openDate=null;document.getElementById('modal').classList.remove('open');}
+function renderDay(){if(!openDate)return;
+ document.getElementById('dLabel').textContent=new Date(openDate+'T12:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+ const evs=ALL.filter(e=>e.date===openDate);
+ document.getElementById('dSub').textContent=evs.length?evs.length+' event'+(evs.length>1?'s':''):'No events yet';
+ document.getElementById('dfDate').value=openDate;
+ document.getElementById('dayEvents').innerHTML=evs.map(e=>'<div class=ag><span class=t>'+(e.time||'')+'</span><span>'+(imp(e)?'\u{1F534} ':'')+e.title+' <span style="color:#666">· '+e.source+'</span></span><span class=del onclick="delEv(\''+e.date+'\',\''+e.title.replace(/'/g,"\\'")+'\')">\u2715</span></div>').join('')
+  ||'<div style="color:#666;font-size:13px">Nothing on this day.</div>';}
 
-async function load(){
-  try{const r=await fetch('events.json?t='+Date.now());const d=await r.json();ALL=(d.events||d)||[];}
-  catch(e){ALL=[];}
-  ALL.forEach(e=>e._p=prio(e));
-  ALL.sort((a,b)=>a.date.localeCompare(b.date)||a._p-b._p);
-}
+let vmode=(window.innerWidth<761)?'day':'month';
+function setMode(m){vmode=m;document.querySelectorAll('.vbtn').forEach(b=>b.classList.toggle('on',b.dataset.v===m));refresh();scrollTo(0,0);}
+function renderDayView(){const y=view.getFullYear(),m=view.getMonth(),dd=view.getDate();
+ const ds0=y+'-'+String(m+1).padStart(2,'0')+'-'+String(dd).padStart(2,'0');
+ const base=new Date(view); base.setDate(base.getDate()-((base.getDay()+7-1)%7)); // week starts Monday
+ let rows='';
+ for(let i=0;i<7;i++){const d2=new Date(base);d2.setDate(base.getDate()+i);
+  const ds=d2.getFullYear()+'-'+String(d2.getMonth()+1).padStart(2,'0')+'-'+String(d2.getDate()).padStart(2,'0');
+  const evs=ALL.filter(e=>e.date===ds);
+  rows+='<div class="wday'+(ds===ds0?' sel':'')+'" onclick="view=new Date(\''+ds+'T12:00\');openDate=ds;renderDay();document.getElementById(\'modal\').classList.add(\'open\');renderDayView()">
+   <div class="wh"><b>'+DOW[d2.getDay()]+' '+d2.getDate()+'</b>'+(ds===today?' <span class="tdy">TODAY</span>':'')+'</div>'
+   +(evs.length?evs.map(e=>'<div class="ev '+cls(e)+(imp(e)?' imp':'')+'">'+(imp(e)?'\u{1F534} ':'')+(e.time?e.time+' ':'')+e.title.replace(/</g,'&lt;')+'</div>').join(''):'<div class="ev" style="border-color:#333;color:#666">—</div>')
+   +'</div>';}
+ document.getElementById('grid').innerHTML='<div class="wgrid">'+rows+'</div>';}
+function renderWeekView(){const y=view.getFullYear(),m=view.getMonth(),dd=view.getDate();
+ const base=new Date(view); base.setDate(base.getDate()-((base.getDay()+7-1)%7));
+ let g=DOW.map(d=>'<div class=dow>'+d+'</div>').join('');
+ for(let i=0;i<7;i++){const d2=new Date(base);d2.setDate(base.getDate()+i);
+  const ds=d2.getFullYear()+'-'+String(d2.getMonth()+1).padStart(2,'0')+'-'+String(d2.getDate()).padStart(2,'0');
+  const evs=ALL.filter(e=>e.date===ds);
+  const de=evs.map(e=>'<div class="ev '+cls(e)+(imp(e)?' imp':'')+'">'+(imp(e)?'\u{1F534} ':'')+(e.time?e.time+' ':'')+e.title.replace(/</g,'&lt;')+'</div>').join('');
+  g+='<div class="day'+(ds===today?' today':'')+'" style="min-height:180px" onclick="openDay(\''+ds+'\')"><div class=dnum>'+d2.getDate()+'</div>'+de+'</div>';}
+ document.getElementById('grid').innerHTML=g;}
+const _refresh=refresh;
+refresh=async function(){await _refresh();
+ if(vmode==='day')renderDayView(); else if(vmode==='week')renderWeekView();};
 
-function shiftMonth(n){view=new Date(view.getFullYear(),view.getMonth()+n,1);renderMonth();}
-function goToday(){view=new Date();renderMonth();}
-
-function renderMonth(){
-  document.getElementById('cal').style.display='';
-  document.getElementById('detail').style.display='none';
-  if(location.hash)history.replaceState(null,'',location.pathname+location.search);
-  const y=view.getFullYear(),m=view.getMonth();
-  document.getElementById('mlabel').textContent=MON[m]+' '+y;
-  const today=iso(new Date());
-  const start=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();
-  let g=DOW.map(d=>'<div class=dow>'+d+'</div>').join('');
-  for(let i=0;i<start;i++)g+='<div class="day dim"></div>';
-  for(let d=1;d<=days;d++){
-    const ds=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
-    const evs=ALL.filter(x=>x.date===ds);
-    const show=evs.slice(0,3);
-    let inner=show.map(x=>'<div class="pill '+pillClass(x)+'">'+(x.time?x.time+' ':'')+esc(x.title).replace(/^🔴\s*/,'')+'</div>').join('');
-    if(evs.length>3)inner+='<div class=more>+'+(evs.length-3)+' more</div>';
-    g+='<div class="day'+(ds===today?' today':'')+'" onclick="openDay(\''+ds+'\')"><div class=n>'+d+'</div>'+inner+'</div>';
-  }
-  document.getElementById('grid').innerHTML=g;
-}
-
-function openDay(ds){
-  curDate=ds;
-  const p=ds.split('-').map(Number);
-  const dt=new Date(p[0],p[1]-1,p[2]);
-  document.getElementById('dTitle').textContent=DOW[dt.getDay()]+', '+MON[p[1]-1]+' '+p[2]+', '+p[0];
-  const evs=ALL.filter(x=>x.date===ds);
-  document.getElementById('dSub').textContent=evs.length?(evs.length+' item'+(evs.length>1?'s':'')+' · tap back to return to the month'):'No items scheduled';
-  const red=evs.filter(isRed),rest=evs.filter(e=>!isRed);
-  let h='';
-  if(red.length){h+='<div class=topline>● IMPORTANT</div>'+red.map(card).join('');}
-  if(rest.length){h+='<div class=topline style="color:var(--mut)">● ALSO TODAY</div>'+rest.map(card).join('');}
-  document.getElementById('dList').innerHTML=h||'<div class=empty>Nothing scheduled — enjoy the day off.</div>';
-  document.getElementById('cal').style.display='none';
-  const det=document.getElementById('detail');det.style.display='block';window.scrollTo(0,0);
-  history.replaceState(null,'','#'+ds);
-}
-function card(x){return '<div class="evcard '+pillClass(x)+'"><div class=t>'+(x.time?'<span>'+x.time+'</span>':'')+'<span class=chip>'+esc(x.type)+' · '+esc(x.source)+'</span></div><div class=title>'+esc(x.title)+'</div></div>';}
-function closeDay(){curDate=null;renderMonth();}
-
-window.addEventListener('popstate',()=>{const h=location.hash.slice(1);if(!h&&curDate)closeDay();});
-
-load().then(()=>renderMonth());
-</script>
-</body>
-</html>
+document.getElementById('df').onsubmit=async ev=>{ev.preventDefault();const fd=new FormData(ev.target);
+ await fetch('/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(fd))});
+ ev.target.querySelector('[name=title]').value='';refresh();};
+async function delEv(d,t){await fetch('/events',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({date:d,title:t})});refresh();}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeDay();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDay();
+ if(e.key==='ArrowLeft'&&e.target.tagName!=='INPUT'){view.setMonth(view.getMonth()-1);refresh();}
+ if(e.key==='ArrowRight'&&e.target.tagName!=='INPUT'){view.setMonth(view.getMonth()+1);refresh();}});
+refresh();
+</script></body></html>
