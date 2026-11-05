@@ -1,48 +1,137 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
-<title>Buddy — School Calendar</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>School Calendar</title>
 <style>
- body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0f1115;color:#e8e8ea;margin:0;padding:16px}
- h1{font-size:20px} h2{font-size:15px;color:#9aa0aa;margin:18px 0 8px}
- .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;max-width:1100px;margin:0 auto}
- .dow{color:#9aa0aa;font-size:11px;text-align:center;padding:3px 0}
- .day{background:#181b21;min-height:64px;border-radius:8px;padding:4px;font-size:11px;overflow:hidden}
- .day.dim{opacity:.3}.day.today{outline:2px solid #d4af37}
- .dnum{color:#9aa0aa;margin-bottom:3px}
- .ev{border-radius:4px;padding:1px 4px;margin:2px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
- .deadline{background:#3a2020;border-left:3px solid #e06c5a}.academic{background:#1e2d3f;border-left:3px solid #6ca8e0}
- .travel{background:#203a2a;border-left:3px solid #6ce09a}.tax{background:#3a3416;border-left:3px solid #e0c05a}
- .recurring{background:#242830;border-left:3px solid #8a90a0}.manual{background:#242830;border-left:3px solid #8a90a0}
- .agenda{max-width:1100px;margin:0 auto}
- .ag{display:flex;gap:10px;padding:8px 10px;background:#181b21;border-radius:8px;margin:4px 0;align-items:baseline;font-size:14px}
- .ag .d{color:#d4af37;min-width:80px}.ag .t{color:#9aa0aa;font-size:12px;min-width:40px}
- .note{color:#666;font-size:12px;max-width:1100px;margin:8px auto}
- .nav{display:flex;justify-content:center;gap:16px;margin:10px 0}
- button{background:#181b21;color:#e8e8ea;border:1px solid #2a2f38;border-radius:6px;padding:6px 14px;cursor:pointer}
-</style></head><body>
-<h1 style="text-align:center" id="mLabel"></h1>
-<div class=nav><button onclick="view.setMonth(view.getMonth()-1);refresh()">‹</button><button onclick="view=new Date();refresh()">Today</button><button onclick="view.setMonth(view.getMonth()+1);refresh()">›</button></div>
-<div class=grid id=grid></div>
-<h2 style="text-align:left;max-width:1100px;margin:18px auto 8px">Next 30 days</h2><div class=agenda id=agenda></div>
-<p class=note>Read-only view — synced from the buddy's machine. To add or change events: message the school-buddy bot on Telegram.</p>
+:root{--bg:#0e1013;--card:#171a20;--card2:#1e222a;--line:#262b34;--txt:#e9ebef;--mut:#8b93a1;--gold:#d4af37;--red:#e0685a;--blue:#6ca8e0;--green:#6ce09a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt);margin:0;padding:0 0 40px}
+header{max-width:720px;margin:0 auto;padding:18px 14px 6px;display:flex;align-items:baseline;justify-content:space-between}
+h1{font-size:22px;margin:0;font-weight:700;letter-spacing:.2px}
+.todaybtn{background:var(--gold);color:#111;border:0;border-radius:99px;padding:7px 16px;font-weight:700;font-size:13px;cursor:pointer}
+nav{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:8px 14px}
+nav .mlab{flex:1;text-align:center;font-size:17px;font-weight:600}
+nav button{background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:10px;width:42px;height:36px;font-size:17px;cursor:pointer}
+.grid{max-width:720px;margin:0 auto;padding:0 10px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dow{color:var(--mut);font-size:10.5px;text-align:center;padding:4px 0;font-weight:600;letter-spacing:.5px}
+.day{background:var(--card);border-radius:10px;min-height:58px;padding:4px;cursor:pointer;border:1px solid transparent;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.day:active{background:var(--card2)}
+.day.dim{opacity:.25;pointer-events:none}
+.day.today{border-color:var(--gold)}
+.day .n{color:var(--mut);font-size:10.5px;margin-bottom:2px}
+.day.today .n{color:var(--gold);font-weight:700}
+.pill{font-size:9.8px;border-radius:5px;padding:1.5px 4px;margin:1px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35}
+.pill.red{background:rgba(224,104,90,.16);color:#f0968a;font-weight:600}
+.pill.deadline{background:rgba(212,175,55,.13);color:var(--gold)}
+.pill.class{background:rgba(108,168,224,.12);color:#9cc4ee}
+.pill.manual,.pill.academic{background:rgba(139,147,161,.13);color:#aab2c0}
+.more{font-size:9.5px;color:var(--mut);margin-top:auto;padding-top:2px}
+/* day detail */
+#detail{display:none;max-width:720px;margin:0 auto;padding:10px 14px}
+.back{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:8px 14px;font-size:14px;cursor:pointer;margin-bottom:12px}
+.dh{font-size:24px;font-weight:700;margin:2px 0 2px}
+.dh-sub{color:var(--mut);font-size:13px;margin-bottom:14px}
+.topline{display:flex;align-items:center;gap:8px;margin:16px 0 8px;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--red)}
+.topline+ .topline{color:var(--mut)}
+.evcard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--mut);border-radius:12px;padding:11px 13px;margin:8px 0}
+.evcard.deadline{border-left-color:var(--gold)}
+.evcard.red{border-left-color:var(--red);background:linear-gradient(90deg,rgba(224,104,90,.09),var(--card))}
+.evcard .t{font-size:12px;color:var(--mut);display:flex;gap:8px;align-items:baseline;margin-bottom:3px}
+.evcard .title{font-size:15px;line-height:1.4}
+.evcard.red .title{font-weight:650}
+.chip{font-size:10px;background:var(--card2);border:1px solid var(--line);border-radius:99px;padding:1px 8px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
+.empty{color:var(--mut);text-align:center;padding:50px 20px;font-size:14px}
+@media(max-width:520px){.day{min-height:50px;padding:3px}.pill{font-size:9px}.dh{font-size:20px}}
+</style>
+</head>
+<body>
+<div id="cal">
+  <header><h1>School Calendar</h1><button class="todaybtn" onclick="goToday()">Today</button></header>
+  <nav>
+    <button onclick="shiftMonth(-1)" aria-label="previous month">‹</button>
+    <div class="mlab" id="mlabel"></div>
+    <button onclick="shiftMonth(1)" aria-label="next month">›</button>
+  </nav>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div id="detail">
+  <button class="back" onclick="closeDay()">← Back to month</button>
+  <div class="dh" id="dTitle"></div>
+  <div class="dh-sub" id="dSub"></div>
+  <div id="dList"></div>
+</div>
+
 <script>
-let view=new Date(),ALL=[];
-const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
-const cls=e=>['deadline','academic','travel','tax'].includes(e.type)?e.type:(e.source&&e.source!=='manual'?e.source:'manual');
-async function refresh(){try{ALL=await(await fetch('events.json?t='+Date.now())).json();}catch(e){ALL=[];}
- ALL.sort((a,b)=>(a.date+(a.time||'')).localeCompare(b.date+(b.time||'')));
- const y=view.getFullYear(),m=view.getMonth();
- document.getElementById('mLabel').textContent=MON[m]+' '+y;
- const start=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();
- const today=new Date().toISOString().slice(0,10);
- let g=DOW.map(d=>'<div class=dow>'+d+'</div>').join('');
- for(let i=0;i<start;i++)g+='<div class="day dim"></div>';
- for(let d=1;d<=days;d++){const ds=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
-  const de=ALL.filter(x=>x.date===ds).map(x=>'<div class="ev '+cls(x)+'">'+(x.time?x.time+' ':'')+x.title.replace(/</g,'&lt;')+'</div>').join('');
-  g+='<div class="day'+(ds===today?' today':'')+'"><div class=dnum>'+d+'</div>'+de+'</div>';}
- document.getElementById('grid').innerHTML=g;
- const cut=new Date(Date.now()+30*864e5).toISOString().slice(0,10);
- document.getElementById('agenda').innerHTML=ALL.filter(x=>x.date>=today&&x.date<=cut)
-  .map(x=>'<div class=ag><span class=d>'+x.date.slice(5)+'</span><span class=t>'+(x.time||'')+'</span><span>'+x.title+' <span style="color:#666">· '+x.source+'</span></span></div>').join('')
-  ||'<div class=ag>Nothing scheduled in the next 30 days.</div>';}
-refresh();setInterval(refresh,60000);
-</script></body></html>
+let view=new Date(),ALL=[],curDate=null;
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const esc=s=>String(s).replace(/</g,'&lt;');
+const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const prio=e=>(e.title.startsWith('🔴')?0:e.type==='deadline'?1:2)+(e.time||'23:59');
+const isRed=e=>e.title.startsWith('🔴');
+const pillClass=e=>isRed(e)?'red':(['deadline','class','academic','travel','tax','manual'].includes(e.type)?e.type:'manual');
+
+async function load(){
+  try{const r=await fetch('events.json?t='+Date.now());const d=await r.json();ALL=(d.events||d)||[];}
+  catch(e){ALL=[];}
+  ALL.forEach(e=>e._p=prio(e));
+  ALL.sort((a,b)=>a.date.localeCompare(b.date)||a._p-b._p);
+}
+
+function shiftMonth(n){view=new Date(view.getFullYear(),view.getMonth()+n,1);renderMonth();}
+function goToday(){view=new Date();renderMonth();}
+
+function renderMonth(){
+  document.getElementById('cal').style.display='';
+  document.getElementById('detail').style.display='none';
+  if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+  const y=view.getFullYear(),m=view.getMonth();
+  document.getElementById('mlabel').textContent=MON[m]+' '+y;
+  const today=iso(new Date());
+  const start=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();
+  let g=DOW.map(d=>'<div class=dow>'+d+'</div>').join('');
+  for(let i=0;i<start;i++)g+='<div class="day dim"></div>';
+  for(let d=1;d<=days;d++){
+    const ds=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    const evs=ALL.filter(x=>x.date===ds);
+    const show=evs.slice(0,3);
+    let inner=show.map(x=>'<div class="pill '+pillClass(x)+'">'+(x.time?x.time+' ':'')+esc(x.title).replace(/^🔴\s*/,'')+'</div>').join('');
+    if(evs.length>3)inner+='<div class=more>+'+(evs.length-3)+' more</div>';
+    g+='<div class="day'+(ds===today?' today':'')+'" onclick="openDay(\''+ds+'\')"><div class=n>'+d+'</div>'+inner+'</div>';
+  }
+  document.getElementById('grid').innerHTML=g;
+}
+
+function openDay(ds){
+  curDate=ds;
+  const [y,m,d]=ds.split('-').map(Number);
+  const dt=new Date(y,m-1,d);
+  document.getElementById('dTitle').textContent=DOW[dt.getDay()]+', '+MON[m-1]+' '+d+', '+y;
+  const evs=ALL.filter(x=>x.date===ds);
+  document.getElementById('dSub').textContent=evs.length?(evs.length+' item'+(evs.length>1?'s':'')+' · tap back to return to the month'):'No items scheduled';
+  const red=evs.filter(isRed),rest=evs.filter(e=>!isRed);
+  let h='';
+  if(red.length){h+='<div class=topline>● IMPORTANT</div>'+red.map(card).join('');}
+  if(rest.length){h+='<div class=topline style="color:var(--mut)">● ALSO TODAY</div>'+rest.map(card).join('');}
+  document.getElementById('dList').innerHTML=h||'<div class=empty>Nothing scheduled — enjoy the day off.</div>';
+  document.getElementById('cal').style.display='none';
+  const det=document.getElementById('detail');det.style.display='block';window.scrollTo(0,0);
+  history.replaceState(null,'','#'+ds);
+}
+function card(x){return '<div class="evcard '+pillClass(x)+'"><div class=t>'+(x.time?'<span>'+x.time+'</span>':'')+'<span class=chip>'+esc(x.type)+' · '+esc(x.source)+'</span></div><div class=title>'+esc(x.title)+'</div></div>';}
+function closeDay(){curDate=null;renderMonth();}
+
+window.addEventListener('hashchange',()=>{
+  const h=decodeURIComponent(location.hash.slice(1));
+  if(/^\d{4}-\d{2}-\d{2}$/.test(h)&&h!==curDate){const p=h.split('-');view=new Date(+p[0],+p[1]-1,1);openDay(h);}
+  else if(!h&&curDate)closeDay();
+});
+window.addEventListener('popstate',()=>{const h=location.hash.slice(1);if(!h&&curDate)closeDay();});
+
+load().then(()=>renderMonth());
+</script>
+</body>
+</html>
