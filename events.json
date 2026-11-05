@@ -272,6 +272,27 @@
    "title": "\ud83d\udd34 PRIMARY TARGET: TCU application deadline for Spring 2028 entry (Neeley business) \u2014 transcript as of this date is what TCU judges",
    "source": "tcu",
    "type": "deadline"
+  },
+  {
+   "date": "2026-12-08",
+   "time": "",
+   "title": "\u26a0\ufe0f TRAVEL CONFLICT: Hawaii diving stint 1 could start as early as TODAY \u2014 but EDUC final (10:15am) + DIRW are today and ENGL final Dec 10 CANNOT be made up. Finals win.",
+   "source": "travel",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-12-11",
+   "time": "",
+   "title": "Hawaii diving stint 1 (thru Dec 21) \u2014 TENTATIVE; clears after ENGL final. Dec 21 same-day handoff to Home Depot stretch",
+   "source": "travel",
+   "type": "travel"
+  },
+  {
+   "date": "2027-01-03",
+   "time": "",
+   "title": "\u26a0\ufe0f CONTESTED Jan 3\u201315 (Hawaii stint 2 OR China trip) \u2014 overlaps CLEP #5 USH II window (Jan 4\u201315): book the exam BEFORE Jan 3 or move it, and spring payment/classes start Jan 19",
+   "source": "travel",
+   "type": "deadline"
   }
  ]
 }
