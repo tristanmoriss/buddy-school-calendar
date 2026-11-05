@@ -27,6 +27,11 @@
  input,select{background:#22252c;color:#e8e8ea;border:1px solid #2a2f38;border-radius:6px;padding:8px}
  input[type=submit]{background:#d4af37;color:#111;border:0;font-weight:600;cursor:pointer}
  .back{margin-top:14px;width:100%;background:#22252c}
+
+ @media (max-width:760px){.wrap{max-width:100%}.day{min-height:64px;font-size:10px;padding:2px}.dnum{font-size:10px}
+  .ev{font-size:8.5px;line-height:1.2}.more{font-size:8px}
+  .day{min-height:70px}.panel{width:96vw}body{padding:8px}h1{font-size:16px}}
+ @media (min-width:761px){.ev{white-space:normal}}
 </style></head><body>
 <h1 id="mLabel" style="cursor:pointer" onclick="closeDay()"></h1>
 <div class="nav"><button onclick="mv(-1)">‹ Prev</button><button onclick="view=new Date();closeDay();refresh()">Today</button><button onclick="mv(1)">Next ›</button></div>
