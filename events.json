@@ -1,1 +1,277 @@
-{"events": []}
+{
+ "events": [
+  {
+   "date": "2026-11-03",
+   "time": "10:35",
+   "title": "EDUC 1300 \u2014 Ch 10: Making Good Decisions (week begins) \u00b7 class 10:35am A223",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-03",
+   "time": "14:50",
+   "title": "ENGL 1301 \u2014 Read & complete SC Ch 31, 32, 33 \u00b7 class 2:50pm H243",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-05",
+   "time": "23:59",
+   "title": "\ud83d\udd34 EDUC 1300 \u2014 Passport Task 8 due (eCampus) \u2014 missing it zeroes ALL 160 Passport pts",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-11-05",
+   "time": "23:59",
+   "title": "ENGL 1301 \u2014 Read & complete SC Ch 20, 34; optional Extra Credit #2 due",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-06",
+   "time": "23:30",
+   "title": "EDUC 1300 \u2014 Ch 10 Quiz (by 11:30pm)",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-10",
+   "time": "14:50",
+   "title": "ENGL 1301 \u2014 Read SC Ch 19; Quiz #5 IN CLASS \u00b7 bring laptop + charger",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-12",
+   "time": "23:59",
+   "title": "\ud83d\udd34 ENGL 1301 \u2014 Research Paper FIRST DRAFT due (50 pts) \u00b7 Read PA Ch 11",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-11-13",
+   "time": "23:59",
+   "title": "EDUC 1300 \u2014 AIP CSFI Post-Test (11:59pm MindTap); Ch 11 Quiz by 11:30pm",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-17",
+   "time": "14:50",
+   "title": "\ud83d\udd34 ENGL 1301 \u2014 Peer Review #1 \u00b7 PRINT draft before class; late arrival loses points",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-11-19",
+   "time": "14:50",
+   "title": "\ud83d\udd34 ENGL 1301 \u2014 Peer Review #2 \u00b7 same rules as Nov 17",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-11-19",
+   "time": "14:50",
+   "title": "\ud83d\udd34 EDUC 1300 \u2014 Unit 3 Exam (Ch 12) \u00b7 in class, closed book",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-11-20",
+   "time": "23:59",
+   "title": "EDUC 1300 \u2014 AIP CSFI Reflection (11:59pm); Ch 12 Quiz by 11:30pm",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-24",
+   "time": "23:59",
+   "title": "\ud83d\udd34 ENGL 1301 \u2014 Research Paper FINAL DRAFT due (200 pts, 20% of grade) \u00b7 optional EC #3",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-11-24",
+   "time": "23:59",
+   "title": "EDUC 1300 \u2014 Financial Literacy Project due (eCampus)",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-26",
+   "time": "",
+   "title": "Thanksgiving \u2014 college closed",
+   "source": "manual",
+   "type": "academic"
+  },
+  {
+   "date": "2026-12-01",
+   "time": "14:50",
+   "title": "ENGL 1301 \u2014 Study guide readings; optional EC #4 due at start of class",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-12-01",
+   "time": "",
+   "title": "\ud83d\udd34 Last day to drop with Q (16-week classes) \u2014 confirm in myBlinn",
+   "source": "manual",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-12-03",
+   "time": "10:35",
+   "title": "EDUC 1300 \u2014 Final Exam Study Guide due in class",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-12-03",
+   "time": "14:50",
+   "title": "ENGL 1301 \u2014 Read 'Studying 101: Study Smarter Not Harder'",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-12-04",
+   "time": "23:30",
+   "title": "EDUC 1300 \u2014 Ch 13 Quiz (by 11:30pm)",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-12-08",
+   "time": "10:15",
+   "title": "\ud83d\udd34 EDUC 1300 \u2014 FINAL EXAM 10:15am\u201312:30pm",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-12-10",
+   "time": "12:45",
+   "title": "\ud83d\udd34 ENGL 1301 \u2014 FINAL EXAM 12:45\u20133:00pm H243 \u00b7 bring laptop + charger",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-02-01",
+   "time": "",
+   "title": "\ud83d\udd34 TCU Fall transfer EARLY ACTION deadline \u2014 apply, list business as intended major",
+   "source": "tcu",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-06-01",
+   "time": "",
+   "title": "TCU final transfer deadline for Fall 2027 (US applicants)",
+   "source": "tcu",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-08-06",
+   "time": "",
+   "title": "\ud83d\udd34 ALL transfer credits (incl. CLEP scores) must be on TCU record by this date",
+   "source": "tcu",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-12-08",
+   "time": "",
+   "title": "DIRW 0327 \u2014 LAST CLASS (8-wk paired with ENGL 1301; C or better completes TSI reading/writing \u2014 confirm with advisor)",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-12-09",
+   "time": "",
+   "title": "DIRW 0327 \u2014 finals window Dec 9\u201310",
+   "source": "syllabus",
+   "type": "academic"
+  },
+  {
+   "date": "2026-11-16",
+   "time": "",
+   "title": "\ud83d\udd34 CLEP #1 American Government \u2014 exam window Nov 16\u201320 (book only after practice test clearly above 55)",
+   "source": "clep-plan",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-11-28",
+   "time": "",
+   "title": "\ud83d\udd34 CLEP #2 Introductory Sociology \u2014 exam window Nov 28\u2013Dec 2",
+   "source": "clep-plan",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-12-11",
+   "time": "",
+   "title": "\ud83d\udd34 CLEP #3 US History I \u2014 exam window Dec 11\u201315 (AFTER ENGL final Dec 10; 65 to count at Blinn)",
+   "source": "clep-plan",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-12-16",
+   "time": "",
+   "title": "\ud83d\udd34 CLEP #4 Humanities \u2014 exam window Dec 16\u201323 (worth 6 TCU hrs)",
+   "source": "clep-plan",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-01-04",
+   "time": "",
+   "title": "\ud83d\udd34 CLEP #5 US History II \u2014 exam window Jan 4\u201315, before spring classes start Jan 19",
+   "source": "clep-plan",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-12-02",
+   "time": "",
+   "title": "\ud83d\udd34 Spring 2027 payment due \u2014 register for all 5 classes (PSYC 2301, GOVT 2306, SPCH 1315, ENGL 1302, ARTS 1301) before this",
+   "source": "blinn",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-01-19",
+   "time": "",
+   "title": "Spring 2027 classes start",
+   "source": "blinn",
+   "type": "academic"
+  },
+  {
+   "date": "2027-04-30",
+   "time": "",
+   "title": "Last day to drop 16-week spring classes",
+   "source": "blinn",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-02-01",
+   "time": "",
+   "title": "STRETCH: TCU Fall 2027 early action deadline \u2014 only if spring 2027 is mostly A's",
+   "source": "tcu",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-06-01",
+   "time": "",
+   "title": "STRETCH: TCU Fall 2027 final transfer deadline \u2014 only if transfer GPA is above 3.25 by then",
+   "source": "tcu",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-08-06",
+   "time": "",
+   "title": "If stretching to Fall 2027: all transfer credits (incl. CLEP scores) on TCU record by this date",
+   "source": "tcu",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-11-01",
+   "time": "",
+   "title": "\ud83d\udd34 PRIMARY TARGET: TCU application deadline for Spring 2028 entry (Neeley business) \u2014 transcript as of this date is what TCU judges",
+   "source": "tcu",
+   "type": "deadline"
+  }
+ ]
+}
