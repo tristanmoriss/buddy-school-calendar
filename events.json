@@ -37,8 +37,29 @@
   },
   {
    "date": "2026-11-10",
+   "time": "10:35",
+   "title": "EDUC 1300 \u2014 Ch 11 (week begins) \u00b7 class 10:35am A223",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-10",
+   "time": "14:50",
+   "title": "\ud83d\udd34 ENGL 1301 \u2014 Quiz #5 IN CLASS \u00b7 Read SC Ch 19 before; bring laptop + charger (only laptop-permitted class before final)",
+   "source": "syllabus",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-11-10",
    "time": "14:50",
    "title": "ENGL 1301 \u2014 Read SC Ch 19; Quiz #5 IN CLASS \u00b7 bring laptop + charger",
+   "source": "syllabus",
+   "type": "class"
+  },
+  {
+   "date": "2026-11-12",
+   "time": "10:35",
+   "title": "EDUC 1300 \u2014 Ch 11 (cont.) \u00b7 class 10:35am A223; Ch 11 Quiz due Fri 11:30pm",
    "source": "syllabus",
    "type": "class"
   },
@@ -62,6 +83,13 @@
    "title": "\ud83d\udd34 CLEP #1 American Government \u2014 exam window Nov 16\u201320 (book only after practice test clearly above 55)",
    "source": "clep-plan",
    "type": "deadline"
+  },
+  {
+   "date": "2026-11-17",
+   "time": "10:35",
+   "title": "EDUC 1300 \u2014 Ch 12 lecture \u00b7 class 10:35am A223 (Unit 3 Exam on Ch 12 is Thu Nov 19)",
+   "source": "syllabus",
+   "type": "class"
   },
   {
    "date": "2026-11-17",
