@@ -57,6 +57,13 @@
    "type": "class"
   },
   {
+   "date": "2026-11-16",
+   "time": "",
+   "title": "\ud83d\udd34 CLEP #1 American Government \u2014 exam window Nov 16\u201320 (book only after practice test clearly above 55)",
+   "source": "clep-plan",
+   "type": "deadline"
+  },
+  {
    "date": "2026-11-17",
    "time": "14:50",
    "title": "\ud83d\udd34 ENGL 1301 \u2014 Peer Review #1 \u00b7 PRINT draft before class; late arrival loses points",
@@ -106,6 +113,20 @@
    "type": "academic"
   },
   {
+   "date": "2026-11-28",
+   "time": "",
+   "title": "\ud83d\udd34 CLEP #2 Introductory Sociology \u2014 exam window Nov 28\u2013Dec 2",
+   "source": "clep-plan",
+   "type": "deadline"
+  },
+  {
+   "date": "2026-12-01",
+   "time": "",
+   "title": "\ud83d\udd34 Last day to drop with Q (16-week classes) \u2014 confirm in myBlinn",
+   "source": "manual",
+   "type": "deadline"
+  },
+  {
    "date": "2026-12-01",
    "time": "14:50",
    "title": "ENGL 1301 \u2014 Study guide readings; optional EC #4 due at start of class",
@@ -113,10 +134,10 @@
    "type": "class"
   },
   {
-   "date": "2026-12-01",
+   "date": "2026-12-02",
    "time": "",
-   "title": "\ud83d\udd34 Last day to drop with Q (16-week classes) \u2014 confirm in myBlinn",
-   "source": "manual",
+   "title": "\ud83d\udd34 Spring 2027 payment due \u2014 register for all 5 classes (PSYC 2301, GOVT 2306, SPCH 1315, ENGL 1302, ARTS 1301) before this",
+   "source": "blinn",
    "type": "deadline"
   },
   {
@@ -142,45 +163,17 @@
   },
   {
    "date": "2026-12-08",
-   "time": "10:15",
-   "title": "\ud83d\udd34 EDUC 1300 \u2014 FINAL EXAM 10:15am\u201312:30pm",
-   "source": "syllabus",
-   "type": "deadline"
-  },
-  {
-   "date": "2026-12-10",
-   "time": "12:45",
-   "title": "\ud83d\udd34 ENGL 1301 \u2014 FINAL EXAM 12:45\u20133:00pm H243 \u00b7 bring laptop + charger",
-   "source": "syllabus",
-   "type": "deadline"
-  },
-  {
-   "date": "2027-02-01",
-   "time": "",
-   "title": "\ud83d\udd34 TCU Fall transfer EARLY ACTION deadline \u2014 apply, list business as intended major",
-   "source": "tcu",
-   "type": "deadline"
-  },
-  {
-   "date": "2027-06-01",
-   "time": "",
-   "title": "TCU final transfer deadline for Fall 2027 (US applicants)",
-   "source": "tcu",
-   "type": "deadline"
-  },
-  {
-   "date": "2027-08-06",
-   "time": "",
-   "title": "\ud83d\udd34 ALL transfer credits (incl. CLEP scores) must be on TCU record by this date",
-   "source": "tcu",
-   "type": "deadline"
-  },
-  {
-   "date": "2026-12-08",
    "time": "",
    "title": "DIRW 0327 \u2014 LAST CLASS (8-wk paired with ENGL 1301; C or better completes TSI reading/writing \u2014 confirm with advisor)",
    "source": "syllabus",
    "type": "class"
+  },
+  {
+   "date": "2026-12-08",
+   "time": "10:15",
+   "title": "\ud83d\udd34 EDUC 1300 \u2014 FINAL EXAM 10:15am\u201312:30pm",
+   "source": "syllabus",
+   "type": "deadline"
   },
   {
    "date": "2026-12-09",
@@ -190,17 +183,10 @@
    "type": "academic"
   },
   {
-   "date": "2026-11-16",
-   "time": "",
-   "title": "\ud83d\udd34 CLEP #1 American Government \u2014 exam window Nov 16\u201320 (book only after practice test clearly above 55)",
-   "source": "clep-plan",
-   "type": "deadline"
-  },
-  {
-   "date": "2026-11-28",
-   "time": "",
-   "title": "\ud83d\udd34 CLEP #2 Introductory Sociology \u2014 exam window Nov 28\u2013Dec 2",
-   "source": "clep-plan",
+   "date": "2026-12-10",
+   "time": "12:45",
+   "title": "\ud83d\udd34 ENGL 1301 \u2014 FINAL EXAM 12:45\u20133:00pm H243 \u00b7 bring laptop + charger",
+   "source": "syllabus",
    "type": "deadline"
   },
   {
@@ -225,13 +211,6 @@
    "type": "deadline"
   },
   {
-   "date": "2026-12-02",
-   "time": "",
-   "title": "\ud83d\udd34 Spring 2027 payment due \u2014 register for all 5 classes (PSYC 2301, GOVT 2306, SPCH 1315, ENGL 1302, ARTS 1301) before this",
-   "source": "blinn",
-   "type": "deadline"
-  },
-  {
    "date": "2027-01-19",
    "time": "",
    "title": "Spring 2027 classes start",
@@ -239,10 +218,10 @@
    "type": "academic"
   },
   {
-   "date": "2027-04-30",
+   "date": "2027-02-01",
    "time": "",
-   "title": "Last day to drop 16-week spring classes",
-   "source": "blinn",
+   "title": "\ud83d\udd34 TCU Fall transfer EARLY ACTION deadline \u2014 apply, list business as intended major",
+   "source": "tcu",
    "type": "deadline"
   },
   {
@@ -253,9 +232,30 @@
    "type": "deadline"
   },
   {
+   "date": "2027-04-30",
+   "time": "",
+   "title": "Last day to drop 16-week spring classes",
+   "source": "blinn",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-06-01",
+   "time": "",
+   "title": "TCU final transfer deadline for Fall 2027 (US applicants)",
+   "source": "tcu",
+   "type": "deadline"
+  },
+  {
    "date": "2027-06-01",
    "time": "",
    "title": "STRETCH: TCU Fall 2027 final transfer deadline \u2014 only if transfer GPA is above 3.25 by then",
+   "source": "tcu",
+   "type": "deadline"
+  },
+  {
+   "date": "2027-08-06",
+   "time": "",
+   "title": "\ud83d\udd34 ALL transfer credits (incl. CLEP scores) must be on TCU record by this date",
    "source": "tcu",
    "type": "deadline"
   },
